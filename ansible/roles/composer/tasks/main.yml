@@ -1,0 +1,26 @@
+- name: Download Composer from getComposer.org
+  get_url:
+      url: https://getcomposer.org/installer
+      dest: /tmp/installer.php
+  tags:
+  - composer
+
+- name: Perform the composer install
+  command: "{{ item }}"
+  with_items:
+  - "php /tmp/installer.php"
+  - mv composer.phar /usr/local/bin/composer
+  tags:
+  - composer
+
+- name: Delete the composer-installer.php after install
+  file:
+    path: /tmp/installer.php
+    state: absent
+  tags:
+  - composer
+
+- name: Verify the version of Composer that was installed
+  command: composer --version
+  register: version
+- debug: msg="{{ version.stdout_lines }}"

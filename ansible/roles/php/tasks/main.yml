@@ -1,0 +1,59 @@
+---
+- name: Add ppa Repository
+  sudo: yes
+  apt_repository: repo=ppa:ondrej/php
+
+- name: Update apt
+  sudo: yes
+  apt: update_cache=yes
+
+- name: Install php7.2
+  sudo: yes
+  apt: pkg=php7.2 state=latest
+
+- name: Install php7-cli
+  sudo: yes
+  apt: pkg=php7.2-cli state=latest
+
+- name: Install php7-zip
+  sudo: yes
+  apt: pkg=php7.2-zip state=latest
+
+- name: Install php7-mysql
+  sudo: yes
+  apt: pkg=php7.2-mysql state=latest
+
+- name: Install php7-xml
+  sudo: yes
+  apt: pkg=php7.2-xml state=latest
+
+- name: Install php7-fpm
+  sudo: yes
+  apt: pkg=php7.2-fpm state=latest
+
+- name: Install php7-curl
+  sudo: yes
+  apt: pkg=php7.2-curl state=latest
+
+- name: Install php7-mbstring
+  sudo: yes
+  apt: pkg=php7.2-mbstring state=latest
+
+- name: Install php7-bcmath
+  sudo: yes
+  apt: pkg=php7.2-bcmath state=latest
+
+- name: Install php7-soap
+  sudo: yes
+  apt: pkg=php7.2-soap state=latest
+
+- name: Install php7-gd
+  sudo: yes
+  apt: pkg=php7.2-gd state=latest
+
+- name: Install php7-intl
+  sudo: yes
+  apt: pkg=php7.2-intl state=latest
+
+- include: configure.yml
+- include: pecl.yml

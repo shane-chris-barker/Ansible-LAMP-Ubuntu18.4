@@ -1,0 +1,5 @@
+.phpintel
+.vagrant
+vendor
+sites/*
+!sites/.gitkeep

@@ -5,7 +5,7 @@ server:
     locale: en_GB.UTF-8
 vagrant_local:
     install: '1'
-    vm: { base_box: trusty64, hostname: test, ip: 192.168.33.99, memory: '512', sharedfolder: /, useVagrantCloud: '1', syncType: nfs }
+    vm: { base_box: trusty64, hostname: test, ip: 192.168.33.99, memory: '512', sharedfolder: /vagrant, useVagrantCloud: '1', syncType: nfs }
 apache:
     install: '1'
     docroot: /vagrant
@@ -20,4 +20,4 @@ mysql:
 php:
     install: '1'
     ppa: php7
-    packages: [php7-cli, php7-intl, php7-mcrypt, php7-mysql]
+    

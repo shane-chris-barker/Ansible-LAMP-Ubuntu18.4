@@ -20,4 +20,3 @@ mysql:
 php:
     install: '1'
     ppa: php7
-    packages: [php7-cli, php7-intl, php7-mcrypt, php7-mysql]

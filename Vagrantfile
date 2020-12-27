@@ -25,10 +25,10 @@ end
 Vagrant.configure("2") do |config|
 
     config.vm.provider :virtualbox do |v|
-        v.name = "test"
+        v.name = "lamp-box"
         v.customize [
             "modifyvm", :id,
-            "--name", "test",
+            "--name", "lamp-box",
             "--memory", 512,
             "--natdnshostresolver1", "on",
             "--cpus", 1,
@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.network :private_network, ip: "192.168.33.99"
     config.ssh.forward_agent = true
-    config.vm.provision :shell, inline: "apt install -y python-cryptography python-paramiko libssl-dev"
+    config.vm.provision :shell, inline: "sudo apt update && apt install -y python-cryptography python-paramiko libssl-dev"
 
     # If ansible is in your path it will provision from your HOST machine
     # If ansible is not found in the path it will be instaled in the VM and provisioned from there
